@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <script>
+        window.onload = function () { // ประกาศเพื่อเรียกใช้ function ทันทีที่โหลดเสร็จ
+            let secounds = 00;
+            let minutes = 00;
+            let appendSecounds = document.getElementById("secounds") // append แปลว่า ผนวก
+            let appendMinutes = document.getElementById("minutes")
+            let buttonStart = document.getElementById("button-start")
+            let buttonStop = document.getElementById("buttonStop")
+            let buttonReset = document.getElementById("buttonReset")
+
+            let interval
+            buttonStart.onclick = function () {
+                interval = setInterval(startTimer, 1000)
+            }
+            buttonStop.onclick = function () {
+                clearInterval(interval)
+            }
+            buttonReset.onclick = function () {
+                secounds = "00";
+                minutes = "00";
+                appendSecounds.innerHTML = secounds
+                appendMinutes.innerHTML = minutes
+            }
+
+            function startTimer() {
+                secounds++;
+
+                if (secounds < 9) {
+                    appendSecounds.innerHTML = "0" + secounds
+                } else if (secounds > 60) {
+                    minutes++
+                    if (minutes > 9) {
+                        appendMinutes.innerHTML = minutes
+                    } else {
+                        appendMinutes.innerHTML = "0" + minutes;
+                    }
+                    secounds = 0
+                    appendSecounds.innerHTML = "0" + 0
+                } else if (secounds > 9) {
+                    appendSecounds.innerHTML = secounds
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Stopwatch</h1>
+        <p><span id="minutes">00</span> : <span id="secounds">00</span></p>
+        <button id="button-start">Start</button>
+        <button id="buttonStop">Stop</button>
+        <button id="buttonReset">Reset</button>
+    </div>
+</body>
+
+</html>
+
+<style>
+    body {
+        background: skyblue;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+    }
+
+    .wrapper {
+        width: 800px;
+        margin: 50px auto;
+        text-align: center;
+        /* element ภายใน center */
+        color: white
+    }
+
+    h1 {
+        font-size: 2.6rem;
+        font-weight: 100;
+        text-transform: uppercase;
+        /* ทำให้ font ของ text เป็นตัวพิมพ์ใหญ่ */
+    }
+
+    #secounds,
+    /* tag class ตาม id ที่ประกาศไว้ใน element */
+    #minutes {
+        font-size: 2em;
+        color: red
+    }
+
+    button {
+        border-radius: 5px;
+        background: blue;
+        color: white;
+        border: 1px solid #fff;
+        text-decoration: none;
+        /* เส้นใต้ */
+        cursor: pointer;
+        /* ลูกศร mouse */
+        font-size: 1.2rem;
+        padding: 18px 10px;
+        width: 180px;
+        margin: 10px;
+        outline: none
+    }
+
+    button:hover {
+        transition: 1s;
+        background: #fff;
+        border: 1px solid #fff;
+        color: blue
+    }
+</style>
