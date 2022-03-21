@@ -55,8 +55,12 @@ class Programer extends Person {
         super("firstName", "lastName")
         this.description = description
     }
+     getSkill() {
+         return "learn and learn"
+     }
 }
 
 let programer1 = new Programer("test")
-console.log('extend', programer1.description)
-console.log('extend', programer1.getFullName())
+// console.log('extend', programer1.description)
+// console.log('extend', programer1.getFullName())
+// console.log('extend', programer1.getSkill())

@@ -1,0 +1,33 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "``` run users.json ด้วยการพิมที่ terminal cd มาที่ folder file .json ด้วย  json-server users.json ```",
+  "main": "best-javascript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-webpack",
+    "build-webpack": "webpack",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birdpakornpong/Javascript-10project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/birdpakornpong/Javascript-10project/issues"
+  },
+  "homepage": "https://github.com/birdpakornpong/Javascript-10project#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "ts-loader": "^9.2.8",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.6.2",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
